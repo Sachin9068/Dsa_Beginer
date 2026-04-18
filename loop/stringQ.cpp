@@ -51,7 +51,7 @@ void convertLowertoupper(string str){
     string newstr;
    for(int i=0;i<str.length();i++){
      ch = str[i];
-     if(ch>='a' || ch<='z'){
+     if(ch>='a' && ch<='z'){
        char lower = ch-len;
        newstr.push_back(lower); 
      }
@@ -64,9 +64,36 @@ void convertLowertoupper(string str){
 
 }
 
+void spaceRemove(string str){
+int j=0;
+    for(int i=0;i<str.length();i++){
+         if(str[i] == ' '){
+            continue;
+         }
+         else{
+            str[j++]=str[i];
+         }
+    }
+    cout<<str;
+}
+
+void frquecnyCount(string str){
+
+  unordered_map<char,int>frqCount;
+
+  for(int i=0;i<str.length();i++){
+     frqCount[str[i]]++;
+  }
+  for(auto &[key,value] : frqCount){
+     cout<<key<<" : "<<value<<endl;
+  }
+  
+}
+
 int main(){
-      
-    convertLowertoupper("sachin");
+    frquecnyCount("my name is sachin");
+    //   spaceRemove("my name is xyz");
+    // convertLowertoupper("sachin");
     // CoutVolCons("Sa#chin");
     // ReverseStr("sachin");
     // Palindrom("qaba");
