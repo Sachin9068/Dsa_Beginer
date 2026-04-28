@@ -50,21 +50,33 @@ void count_odd_even(int arr[],int size){
 
 void find_second_largest(int arr[],int size){
 
-    int largest = arr[0],sec_larg;
+    int largest = -1,sec_larg=-1;
 
-    for(int i=1;i<size;i++){
-        if(arr[i]>largest){
-            sec_larg = largest;
-            largest = arr[i];
-        }
+    // for(int i=1;i<size;i++){
+    //     if(arr[i]>largest){
+    //         sec_larg = largest;
+    //         largest = arr[i];
+    //     }
+    // }
+
+   for(int i=0;i<size;i++){
+    if(arr[i]>largest){
+        largest = arr[i];
     }
+   }
+    
+   for(int j=0;j<size;j++){
+     if(arr[j]<largest && sec_larg<arr[j]){
+         sec_larg=arr[j];
+     }
+   }
 
     cout<<"the second Largest value of array is : "<<sec_larg<<endl;
 }
 
 
 int main(){
-    int arr[] = {70,1,4,54,7,37,3,63};
+    int arr[] = {70,1,4,54,7,67,37,3,63};
     int n=sizeof(arr)/sizeof(arr[0]);
 
     find_second_largest(arr,n);
